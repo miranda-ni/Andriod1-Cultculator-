@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         result_field=findViewById(R.id.result_field);
     }
 
-    public void onOperationClick(View view) {
+    public void onNumberClick (View view) {
         switch (view.getId()) {
             case R.id.seven:
                 result_field.append("7");
@@ -48,34 +48,35 @@ public class MainActivity extends AppCompatActivity {
             case R.id.one:
                 result_field.append("1");
                 break;
-            case R.id.zero:
-                result_field.append("0");
-                break;
-            case R.id.clear:
-                result_field.setText("");
-                break;
+
+
+
 
 
         }}
-        public void onNumberClick(View view){
+        public void onOperationClick(View view){
         try {
 
 
 
             switch (view.getId()) {
+                case R.id.clear:
+                    result_field.setText("");
+                    break;
                 case R.id.plus:
-                        operation = "+";
+
+                    operation = "+";
                         firstValue = Double.valueOf(result_field.getText().toString());
                         result_field.setText(firstValue + "+");
                         break;
 
-                        case R.id.division:
-                            if(result_field== null){
-                                result_field.setText(" ");
+                       case R.id.division:
+//                            if(result_field== null){
+//                                result_field.setText(" ");
+//
+//                            }else {
+//                                result_field.setText("/");
 
-                            }else {
-                                result_field.setText("/");
-                            }
                     operation = "/";
                     firstValue = Double.valueOf(result_field.getText().toString());
                     result_field.setText(firstValue + "/");
@@ -83,17 +84,21 @@ public class MainActivity extends AppCompatActivity {
 
 
             case R.id.minus:
-                if(result_field ==null){
-                    result_field.setText(" ");
-                }else {
-                    result_field.setText("-");
-                }
+//                if(result_field ==null){
+//                    result_field.setText(" ");
+//                }else {
+//                    result_field.setText("-");
+//                }
                 operation = "-";
                 firstValue = Double.valueOf(result_field.getText().toString());
                 result_field.setText(firstValue + "-");
                 break;
 
             case R.id.comma:
+//                if (result_field==null){
+//                    result_field.setText(" ");
+//
+//                }else {result_field.setText(",");}
 
                     result_field.setText(firstValue + ",");
 
@@ -102,6 +107,10 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
             case R.id.multip:
+//                if (result_field == null){
+//                    result_field.setText(" ");
+//                }else result_field.setText("*");
+
                 operation = " *";
                 firstValue = Double.valueOf(result_field.getText().toString());
                 result_field.setText(firstValue + "*");
@@ -110,10 +119,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
             case R.id.equal:
                 if (operation != null) {
                     String two = result_field.getText().toString()
-                            .replace(firstValue + operation+"", "");
+                            .replace(firstValue + operation + " ", " ");
                     twoValue = Double.valueOf(two);
                     switch (operation) {
                         case "+":
@@ -158,7 +168,9 @@ public class MainActivity extends AppCompatActivity {
         result = firstValue/twoValue;
         result_field.setText(result.toString());
     }
-}
+
+    }
+
 
 
 
