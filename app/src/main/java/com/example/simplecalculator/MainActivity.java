@@ -3,12 +3,13 @@ package com.example.simplecalculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     TextView result_field;
-    Double firstValue,twoValue,result;
+    Double firstValue, twoValue, result;
     String operation;
 
 
@@ -16,10 +17,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        result_field=findViewById(R.id.result_field);
+        result_field = findViewById(R.id.result_field);
     }
 
-    public void onNumberClick (View view) {
+    public void onNumberClick(View view) {
         switch (view.getId()) {
             case R.id.seven:
                 result_field.append("7");
@@ -48,128 +49,96 @@ public class MainActivity extends AppCompatActivity {
             case R.id.one:
                 result_field.append("1");
                 break;
+            case R.id.zero:
+                result_field.append("0");
+                break;
+        }
+    }
 
-
-
-
-
-        }}
-        public void onOperationClick(View view){
+    public void onOperationClick(View view) {
         try {
-
-
-
             switch (view.getId()) {
                 case R.id.clear:
                     result_field.setText("");
                     break;
                 case R.id.plus:
-
                     operation = "+";
-                        firstValue = Double.valueOf(result_field.getText().toString());
-                        result_field.setText(firstValue + "+");
-                        break;
-
-                       case R.id.division:
-//                            if(result_field== null){
-//                                result_field.setText(" ");
-//
-//                            }else {
-//                                result_field.setText("/");
-
+                    firstValue = Double.valueOf(result_field.getText().toString());
+                    result_field.setText("+");
+                    break;
+                case R.id.division:
                     operation = "/";
                     firstValue = Double.valueOf(result_field.getText().toString());
-                    result_field.setText(firstValue + "/");
+                    result_field.setText("/");
                     break;
-
-
-            case R.id.minus:
-//                if(result_field ==null){
-//                    result_field.setText(" ");
-//                }else {
-//                    result_field.setText("-");
-//                }
-                operation = "-";
-                firstValue = Double.valueOf(result_field.getText().toString());
-                result_field.setText(firstValue + "-");
-                break;
-
-            case R.id.comma:
-//                if (result_field==null){
-//                    result_field.setText(" ");
-//
-//                }else {result_field.setText(",");}
-
-                    result_field.setText(firstValue + ",");
-
-                    operation = ",";
+                case R.id.minus:
+                    operation = "-";
                     firstValue = Double.valueOf(result_field.getText().toString());
+                    result_field.setText("-");
                     break;
+                case R.id.dot:
+                    operation = ".";
+                    firstValue = Double.valueOf(result_field.getText().toString());
+                    result_field.setText( ".");
+                    break;
+                case R.id.multip:
+                    operation = "*";
+                    firstValue = Double.valueOf(result_field.getText().toString());
+                    result_field.setText("*");
+                    break;
+                case R.id.equal:
+                    if (operation != null) {
+                        String two = result_field.getText().toString()
+                                .replace(firstValue + operation + " ", " ");
+                        twoValue = Double.valueOf(two);
+                        switch (operation) {
+                            case "+":
+                                plusOp();
+                                break;
+                            case "/":
+                                divisionOp();
+                                break;
+                            case "-":
+                                minus();
+                                break;
 
-            case R.id.multip:
-//                if (result_field == null){
-//                    result_field.setText(" ");
-//                }else result_field.setText("*");
+                            case "*":
+                                multiply();
+                                break;
+                        }
 
-                operation = " *";
-                firstValue = Double.valueOf(result_field.getText().toString());
-                result_field.setText(firstValue + "*");
-                break;
-
-
-
-
-
-            case R.id.equal:
-                if (operation != null) {
-                    String two = result_field.getText().toString()
-                            .replace(firstValue + operation + " ", " ");
-                    twoValue = Double.valueOf(two);
-                    switch (operation) {
-                        case "+":
-                            plusOp();
-                            break;
-                        case "/":
-                            divisionOp();
-                            break;
-                        case "-":
-                            minus();
-                            break;
-                        case ",":
-                            comma();
-                            break;
-                        case "*":
-                            multiply();
-                            break;
                     }
-                }
-        }}catch (Exception e){}
+            }
+        } catch (Exception e) {
+        }
     }
 
 
     public void plusOp() {
         result = firstValue + twoValue;
-        result_field.setText(result.toString());
+        result_field.setText(firstValue + operation + twoValue+ "="+result);
     }
+
 
     public void divisionOp() {
-        result = firstValue/ twoValue;
-        result_field.setText(result.toString());
-    }
-    public void minus(){
-        result = firstValue/twoValue;
-        result_field.setText(result.toString());
-    }
-    public void comma(){
-        result = firstValue/twoValue;
-        result_field.setText(result.toString());
-    }
-    public void multiply(){
-        result = firstValue/twoValue;
-        result_field.setText(result.toString());
+        result = firstValue / twoValue;
+        result_field.setText(firstValue + operation + twoValue +  "=" +result);
     }
 
+    public void minus() {
+        result = firstValue - twoValue;
+        result_field.setText(firstValue + operation + twoValue +  "=" +result);
     }
+
+
+        public void multiply() {
+            result = firstValue * twoValue;
+            result_field.setText(firstValue + operation + twoValue +  "=" +result);
+        }
+
+    }
+
+
 
 
 

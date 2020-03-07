@@ -21,8 +21,8 @@
         android:layout_height="wrap_content">
 
     <Button
+        android:background="@android:color/darker_gray"
         android:id="@+id/clear"
-
         android:onClick="onOperationClick"
         android:layout_width="wrap_content"
         android:layout_height="70dp"
@@ -48,24 +48,17 @@
             android:textSize="30sp"/>
         <Button
             android:id="@+id/eight"
-
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:text="8"
             android:onClick="onNumberClick"
-
-
-
-
             android:textSize="30sp"/>
         <Button
             android:id="@+id/nine"
-
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:text="9"
             android:onClick="onNumberClick"
-
             android:textSize="30sp"/>
         <Button
             android:id="@+id/multip"
@@ -104,7 +97,6 @@
             android:layout_height="70dp"
             android:text="4"
             android:onClick="onNumberClick"
-
             android:textSize="30sp"/>
         <Button
             android:id="@+id/plus"
@@ -113,56 +105,39 @@
             android:layout_height="70dp"
             android:text="+"
             android:onClick="onOperationClick"
-
             android:textSize="30sp"/>
-
-
-
     </LinearLayout>
     <LinearLayout
-
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
             android:id="@+id/three"
-
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:text="3"
             android:onClick="onNumberClick"
-
             android:textSize="30sp"/>
         <Button
             android:id="@+id/two"
-
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:text="2"
             android:onClick="onNumberClick"
-
             android:textSize="30sp"/>
         <Button
             android:id="@+id/one"
-
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:text="1"
             android:onClick="onNumberClick"
-
             android:textSize="30sp"/>
         <Button
             android:id="@+id/minus"
-
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:text="-"
             android:onClick="onOperationClick"
-
             android:textSize="30sp"/>
-
-
-
     </LinearLayout>
     <LinearLayout
 
@@ -171,12 +146,10 @@
         android:layout_height="wrap_content">
         <Button
             android:id="@+id/division"
-
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:text="/"
             android:onClick="onOperationClick"
-
             android:textSize="30sp"/>
         <Button
             android:id="@+id/zero"
@@ -188,17 +161,16 @@
 
             android:textSize="30sp"/>
         <Button
-            android:id="@+id/comma"
+            android:id="@+id/dot"
 
             android:layout_width="wrap_content"
             android:layout_height="70dp"
-            android:text=","
+            android:text="."
             android:onClick="onOperationClick"
 
             android:textSize="30sp"/>
         <Button
             android:id="@+id/equal"
-
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:text="="
