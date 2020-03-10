@@ -61,7 +61,7 @@
             android:onClick="onNumberClick"
             android:textSize="30sp"/>
         <Button
-            android:id="@+id/multip"
+            android:id="@+id/multiply"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:text="*"

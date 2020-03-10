@@ -52,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.zero:
                 result_field.append("0");
                 break;
+            case R.id.dot:
+                result_field.append(".");
+                break;
         }
     }
 
@@ -64,27 +67,27 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.plus:
                     operation = "+";
                     firstValue = Double.valueOf(result_field.getText().toString());
-                    result_field.setText("+");
+                    result_field.setText(" ");
                     break;
                 case R.id.division:
                     operation = "/";
                     firstValue = Double.valueOf(result_field.getText().toString());
-                    result_field.setText("/");
+                    result_field.setText(" ");
                     break;
                 case R.id.minus:
                     operation = "-";
                     firstValue = Double.valueOf(result_field.getText().toString());
-                    result_field.setText("-");
+                    result_field.setText(" ");
                     break;
-                case R.id.dot:
-                    operation = ".";
-                    firstValue = Double.valueOf(result_field.getText().toString());
-                    result_field.setText( ".");
-                    break;
-                case R.id.multip:
+//                case R.id.dot:
+//                    operation = ".";
+//                    firstValue = Double.valueOf(result_field.getText().toString());
+//                    result_field.setText( " ");
+//                    break;
+                case R.id.multiply:
                     operation = "*";
                     firstValue = Double.valueOf(result_field.getText().toString());
-                    result_field.setText("*");
+                    result_field.setText(" ");
                     break;
                 case R.id.equal:
                     if (operation != null) {
@@ -123,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
     public void divisionOp() {
         result = firstValue / twoValue;
         result_field.setText(firstValue + operation + twoValue +  "=" +result);
+
     }
 
     public void minus() {
