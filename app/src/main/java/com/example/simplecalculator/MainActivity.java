@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     Double firstValue, twoValue, result;
     String operation;
     String savedString;
-    TextView textView;
+
 
 
     @Override
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         result_field = findViewById(R.id.result_field);
         if (savedInstanceState!= null)
             savedString =savedInstanceState.getString("saveString");
-        result_field.setText(savedString);
+
 
         Log.d("create", "onCreate: " + savedString);
     }
