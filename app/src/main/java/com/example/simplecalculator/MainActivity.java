@@ -1,16 +1,20 @@
 package com.example.simplecalculator;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     TextView result_field;
     Double firstValue, twoValue, result;
     String operation;
+    String savedString;
+    TextView textView;
 
 
     @Override
@@ -18,7 +22,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         result_field = findViewById(R.id.result_field);
+        if (savedInstanceState!= null)
+            savedString =savedInstanceState.getString("saveString");
+        result_field.setText(savedString);
+
+        Log.d("create", "onCreate: " + savedString);
     }
+
+
 
     public void onNumberClick(View view) {
         switch (view.getId()) {
@@ -79,11 +90,7 @@ public class MainActivity extends AppCompatActivity {
                     firstValue = Double.valueOf(result_field.getText().toString());
                     result_field.setText(" ");
                     break;
-//                case R.id.dot:
-//                    operation = ".";
-//                    firstValue = Double.valueOf(result_field.getText().toString());
-//                    result_field.setText( " ");
-//                    break;
+
                 case R.id.multiply:
                     operation = "*";
                     firstValue = Double.valueOf(result_field.getText().toString());
@@ -139,8 +146,46 @@ public class MainActivity extends AppCompatActivity {
             result = firstValue * twoValue;
             result_field.setText(firstValue + operation + twoValue +  "=" +result);
         }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("start", "onStart: ");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("stop", "onStop: ");
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("saveString", result_field.getText().toString());
+        Log.d("save String", "onSaveInstanceState: ");
 
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("oo", "onDestroy: ");
+    }
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 
